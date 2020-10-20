@@ -1,6 +1,8 @@
 provider "aws" {
   version = "~> 3.0"
   region  = var.region
+  access_key = data.vault_aws_access_credentials.creds.access_key
+  secret_key = data.vault_aws_access_credentials.creds.secret_key
 }
 
 resource "aws_vpc" "hashicat" {
