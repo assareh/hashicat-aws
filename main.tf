@@ -1,9 +1,14 @@
-provider "aws" {
-  access_key = data.doormat_aws_credentials.creds.access_key
-  secret_key = data.doormat_aws_credentials.creds.secret_key
-  token      = data.doormat_aws_credentials.creds.token
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "=3.42.0"
+    }
+  }
+}
 
-  region = var.region
+provider "aws" {
+  region  = var.region
 }
 
 resource "aws_vpc" "hashicat" {
