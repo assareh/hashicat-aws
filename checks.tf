@@ -1,4 +1,4 @@
-check "health_check" {
+check "http_200_health_check" {
   data "http" "catapp" {
     url = "http://${aws_eip.hashicat.public_dns}"
   }
