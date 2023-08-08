@@ -5,6 +5,12 @@
 # Terraform code. If you create a variable with no default, the user will be
 # prompted to enter it (or define it via config file or command line flags.)
 
+# required for doormat provider code
+variable "TFC_WORKSPACE_NAME" {
+  type    = string
+  default = "" # An error occurs when you are running TF backend other than Terraform Cloud
+}
+
 variable "prefix" {
   description = "This prefix will be included in the name of most resources."
 }
