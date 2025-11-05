@@ -121,6 +121,11 @@ resource "aws_instance" "hashicat" {
   subnet_id                   = aws_subnet.hashicat.id
   vpc_security_group_ids      = [aws_security_group.hashicat.id]
 
+  root_block_device {
+    volume_size = 20
+    volume_type = "gp3"
+  }
+
   tags = {
     Name = "${var.prefix}-hashicat-instance"
   }
